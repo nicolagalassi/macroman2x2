@@ -48,5 +48,23 @@
                 &kp C_MUTE    &to 0
             >;
         };
+
+        /*
+         * Layer vuoti "di scorta": ignorati dal firmware normale
+         * (ZMK_KEYMAP_LAYERS_LEN usa DT_FOREACH_CHILD_STATUS_OKAY),
+         * disponibili e rinominabili in ZMK Studio (che invece conta
+         * tutti i figli del nodo keymap).
+         */
+        extra1 {
+            status = "reserved";
+        };
+
+        extra2 {
+            status = "reserved";
+        };
+
+        extra3 {
+            status = "reserved";
+        };
     };
 };
