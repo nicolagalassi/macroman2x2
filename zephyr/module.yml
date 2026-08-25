@@ -1,3 +1,4 @@
+name: zmk-keyboard-macroman2x2
 build:
   settings:
     board_root: .

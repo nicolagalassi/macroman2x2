@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: MIT
+
+config SHIELD_MACROMAN2X2
+    def_bool $(shields_list_contains,macroman2x2)

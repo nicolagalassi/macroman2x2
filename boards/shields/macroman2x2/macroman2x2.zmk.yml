@@ -1,0 +1,8 @@
+file_format: "1"
+id: macroman2x2
+name: MacroMan 2x2
+type: shield
+requires: [seeed_xiao]
+features:
+  - keys
+  - studio

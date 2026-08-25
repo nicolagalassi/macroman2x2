@@ -1,0 +1,52 @@
+/*
+ * SPDX-License-Identifier: MIT
+ *
+ * Ordine delle posizioni (vedi macroman2x2.overlay):
+ *   pos 0 = D9   pos 1 = D6
+ *   pos 2 = D1   pos 3 = D3 (tasto funzione)
+ *
+ * Il tasto funzione usa &to: passa al layer indicato e disattiva gli altri,
+ * quindi le pressioni successive ciclano 0 -> 1 -> 2 -> 0.
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            display-name = "Base";
+            // ------------------------
+            // |    S     |     L     |
+            // |  INVIO   |    Fn ->  |
+            bindings = <
+                &kp S      &kp L
+                &kp ENTER  &to 1
+            >;
+        };
+
+        edit_layer {
+            display-name = "Edit";
+            // ------------------------
+            // |  CTRL+C  |  CTRL+V   |
+            // |   CANC   |    Fn ->  |
+            bindings = <
+                &kp LC(C)  &kp LC(V)
+                &kp DEL    &to 2
+            >;
+        };
+
+        media_layer {
+            display-name = "Media";
+            // ------------------------
+            // |  VOL +   |   VOL -   |
+            // |   MUTO   |    Fn ->  |
+            bindings = <
+                &kp C_VOL_UP  &kp C_VOL_DN
+                &kp C_MUTE    &to 0
+            >;
+        };
+    };
+};
